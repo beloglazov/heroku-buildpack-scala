@@ -92,7 +92,8 @@ if [ ! -f "$SBT_BINDIR"/"$SBT_JAR" ]; then
   ## clean up any old versions
   /bin/rm -f sbt sbt-launch-*.jar || true
 
-  echo -n "-----> Downloading SBT..."
+  echo "-----> Downloading SBT..."
+  echo $SBT_URL
   curl --silent --max-time 60 -O --location $SBT_URL --fail || error "Failed to download $SBT_JAR"
   echo "done"
 
