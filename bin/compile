@@ -70,9 +70,7 @@ fi
 SBT_VERSION="$(get_supported_sbt_version ${BUILD_DIR})"
 SBT_JAR="sbt-launch.jar"
 SBT_URL="http://typesafe.artifactoryonline.com/typesafe/ivy-releases/org.scala-sbt/sbt-launch/0.13.1/$SBT_JAR"
-echo "SBT info:"
-echo $SBT_JAR
-echo $SBT_URL
+echo "SBT info: $SBT_URL"
 ## in 0.10 start-script will depend on package, if packaging
 ## is required - it may not be, we can run .class files or a package-war
 ## instead.
@@ -96,7 +94,6 @@ if [ ! -f "$SBT_BINDIR"/"$SBT_JAR" ]; then
   /bin/rm -f sbt sbt-launch-*.jar || true
 
   echo "-----> Downloading SBT..."
-  echo $SBT_URL
   curl --silent --max-time 60 -O --location $SBT_URL --fail || error "Failed to download $SBT_JAR"
   echo "done"
 
