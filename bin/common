@@ -249,7 +249,7 @@ run_sbt()
   JAVA_OPTS="$JAVA_OPTS -Dsbt.global.base=$home"
 
   echo "GLIBC version:"
-  ldd --version
+  ldd --version|grep ldd
   echo "-----> Running: sbt $tasks"
   HOME="$home" java $JAVA_OPTS -jar $launcher $tasks < /dev/null 2>&1 | sed -u 's/^/       /'
 
